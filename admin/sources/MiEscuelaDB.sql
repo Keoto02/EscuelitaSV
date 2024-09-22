@@ -23,6 +23,8 @@ CREATE TABLE users (
     FOREIGN KEY (user_type_id) REFERENCES user_types(id_user_type)
 );
 
+INSERT INTO users (first_name_user, last_name_user, email_user, username_user, password_user, user_type_id) VALUES ('Carlos', 'Guerrero', 'guerrero@gmail.com', 'admin', '123', 1);
+
 -- Program types table
 CREATE TABLE career_course_types (
     id_career_course_type INT AUTO_INCREMENT PRIMARY KEY,
