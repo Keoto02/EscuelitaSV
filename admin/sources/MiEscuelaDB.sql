@@ -23,7 +23,10 @@ CREATE TABLE users (
     FOREIGN KEY (user_type_id) REFERENCES user_types(id_user_type)
 );
 
-INSERT INTO users (first_name_user, last_name_user, email_user, username_user, password_user, user_type_id) VALUES ('Carlos', 'Guerrero', 'guerrero@gmail.com', 'admin', '123', 1);
+INSERT INTO users (first_name_user, last_name_user, email_user, username_user, password_user, user_type_id) VALUES ('Admin', 'Admin', 'admin@gmail.com', 'admin', '123', 1);
+INSERT INTO users (first_name_user, last_name_user, email_user, username_user, password_user, user_type_id) VALUES ('Carlos', 'Guerrero', 'guerrero@gmail.com', 'cguerrero', '123', 2);
+INSERT INTO users (first_name_user, last_name_user, email_user, username_user, password_user, user_type_id) VALUES ('Josue', 'Montoya', 'montoya@gmail.com', 'jmontoya', '123', 2);
+INSERT INTO users (first_name_user, last_name_user, email_user, username_user, password_user, user_type_id) VALUES ('Williams', 'Rodriguez', 'rodriguez@gmail.com', 'wrodriguez', '123', 2);
 
 -- Program types table
 CREATE TABLE career_course_types (

@@ -39,9 +39,13 @@
         $user = isset($_POST['user']) ? $_POST['user'] : "";
         $pwd = isset($_POST['pwd']) ? $_POST['pwd'] : "";
 
-        $query = "SELECT username_user, password_user, user_type_id FROM users WHERE username_user = :user AND password_user = :pwd";
+        $query = "
+            SELECT u.username_user, u.password_user, ut.user_type 
+            FROM users u 
+            INNER JOIN user_types ut ON u.user_type_id = ut.id_user_type 
+            WHERE u.username_user = :user AND u.password_user = :pwd";
+            
         $stmt = $connection->prepare($query);
-    
         $stmt->execute([
             ':user' => $user,
             ':pwd' => $pwd
@@ -50,8 +54,15 @@
         if ($stmt->rowCount() == 1) {
             session_start();
             $theUser = $stmt->fetch(PDO::FETCH_ASSOC);
-            $_SESSION["user"] = $theUser['user_type_id'];
-            header('Location: ./admin/views/index.php');
+            $_SESSION["user"] = $theUser['user_type'];
+
+            if ($theUser['user_type'] == 'administrator') {
+                header('Location: ./admin/views/Admin.php');
+            } elseif ($theUser['user_type'] == 'teacher') {
+                header('Location: ./admin/views/index.php');
+            } else {
+                $error = "Tipo de usuario no reconocido";
+            }
         } else {
             $error = "Error en el inicio de sesión";
         }
