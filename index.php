@@ -43,28 +43,28 @@
             SELECT u.username_user, u.password_user, ut.user_type 
             FROM users u 
             INNER JOIN user_types ut ON u.user_type_id = ut.id_user_type 
-            WHERE u.username_user = :user AND u.password_user = :pwd";
+            WHERE u.username_user = :user";
             
         $stmt = $connection->prepare($query);
-        $stmt->execute([
-            ':user' => $user,
-            ':pwd' => $pwd
-        ]);
-    
-        if ($stmt->rowCount() == 1) {
-            session_start();
-            $theUser = $stmt->fetch(PDO::FETCH_ASSOC);
-            $_SESSION["user"] = $theUser['user_type'];
+        $stmt->bindParam(':user', $user);
+        $stmt->execute();
+        $userFound = $stmt->fetch(PDO::FETCH_ASSOC);
 
-            if ($theUser['user_type'] == 'administrator') {
+        if (password_verify($pwd, $userFound["password_user"])) {
+            session_start();
+            $_SESSION["user"] = $userFound['user_type'];
+
+            if ($userFound['user_type'] == 'administrator') {
                 header('Location: ./admin/views/Admin.php');
-            } elseif ($theUser['user_type'] == 'teacher') {
+            } elseif ($userFound['user_type'] == 'teacher') {
                 header('Location: ./admin/views/Admin.php');
             } else {
                 $error = "Tipo de usuario no reconocido";
+                echo "<script>alert('$error')</script>";
             }
         } else {
             $error = "Error en el inicio de sesión";
+            echo "<script>alert('$error')</script>";
         }
     }
 ?>

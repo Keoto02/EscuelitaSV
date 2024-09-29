@@ -18,7 +18,7 @@ if ($_SESSION['user'] == "") {
 </head>
 
 <body>
-    <nav class="navbar navbar-expand-lg navbar-dark">
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
         <div class="container">
             <a class="navbar-brand" href="#">
                 <i class="bi bi-building" style="font-size: 19px;"></i> Universidad de Oriente
@@ -104,10 +104,10 @@ if ($_SESSION['user'] == "") {
                         if ($_SESSION["user"] == "administrator") {
                         ?>
                             <td>
-                                <a href="" <?php echo $user['id_user']; ?>" class="btn btn-primary btn-sm mr-2">
+                                <a href="../Controllers/getByIdUserController.php?action=edit&id=<?php echo $user['id_user']; ?>" class="btn btn-primary btn-sm mr-2">
                                     <i class="bi bi-pencil" style="font-size: 25px;"></i>
                                 </a>
-                                <a href="" <?php echo $user['id_user']; ?>" class="btn btn-danger btn-sm">
+                                <a href="../Controllers/getByIdUserController.php?action=delete&id=<?php echo $user['id_user']; ?>" class="btn btn-danger btn-sm">
                                     <i class="bi bi-trash" style="font-size: 25px;"></i>
                                 </a>
                             </td>
