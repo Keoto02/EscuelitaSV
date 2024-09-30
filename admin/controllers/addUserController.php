@@ -30,7 +30,17 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         header("Location: ../views/Admin.php");
         exit();
     } catch (PDOException $e) {
-        echo "Error al crear el usuario: " . $e->getMessage();
+        if ($e->getCode() == 23000) {
+            $error = "El correo electrónico o nombre de usuario ya está registrado. Por favor, usa otro.";
+        } else {
+            $error = "Ocurrió un error al crear el usuario. Por favor, intenta nuevamente.";
+        }
+    
+        $error = json_encode($error);
+        echo "<script>
+            alert($error);
+            window.location.href = '../views/Admin.php';
+        </script>";
     }
 }
 ?>

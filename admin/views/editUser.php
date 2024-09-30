@@ -84,7 +84,7 @@ $userTypes = $stmt->fetchAll(PDO::FETCH_ASSOC);
 
     <script>
     function togglePasswordVisibility() {
-        var passwordInput = document.getElementById("password");
+        var passwordInput = document.getElementById("newPassword");
         var toggleIcon = document.getElementById("toggleIcon");
         
         if (passwordInput.type === "password") {
