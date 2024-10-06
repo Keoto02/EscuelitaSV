@@ -29,7 +29,7 @@ if ($_SESSION['user'] == "") {
             <div class="collapse navbar-collapse" id="navbarNav">
                 <ul class="navbar-nav">
                     <li class="nav-item">
-                        <a class="nav-link" href="./index_user.php"> <i class="bi bi-person bi-lg" style="font-size: 19px;"></i> Usuarios</a>
+                        <a class="nav-link" href="./Admin.php"> <i class="bi bi-person bi-lg" style="font-size: 19px;"></i> Usuarios</a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link" href="./index_user.php"> <i class="bi bi-person bi-lg" style="font-size: 19px;"></i> Tipo de Carrera o Curso</a>

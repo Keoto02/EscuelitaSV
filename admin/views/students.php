@@ -18,24 +18,36 @@ if ($_SESSION['user'] == "") {
 </head>
 
 <body>
-    <nav class="navbar navbar-expand-lg navbar-dark">
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
         <div class="container">
             <a class="navbar-brand" href="#">
-                <i class="bi bi-building"></i> Universidad de Oriente
+                <i class="bi bi-building" style="font-size: 19px;"></i> Universidad de Oriente
             </a>
-            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
             </button>
             <div class="collapse navbar-collapse" id="navbarNav">
                 <ul class="navbar-nav">
                     <li class="nav-item">
-                        <a class="nav-link" href="./index_student.php">Estudiantes</a>
+                        <a class="nav-link" href="./Admin.php"> <i class="bi bi-person bi-lg" style="font-size: 19px;"></i> Usuarios</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="./index_career.php">Carreras</a>
+                        <a class="nav-link" href="./index_user.php"> <i class="bi bi-person bi-lg" style="font-size: 19px;"></i> Tipo de Carrera o Curso</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="../Controllers/logout.php"><i class="bi bi-box-arrow-right"></i></a>
+                        <a class="nav-link" href="./index_user.php"> <i class="bi bi-person bi-lg" style="font-size: 19px;"></i> Carreras y Cursos</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="./index_user.php"> <i class="bi bi-person bi-lg" style="font-size: 19px;"></i> Modalidades de Estudio</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="./students.php"> <i class="bi bi-person bi-lg" style="font-size: 19px;"></i> Estudiantes</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="./problemsReports.php"> <i class="bi bi-person bi-lg" style="font-size: 19px;"></i> Reportes de Problemas</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="../Controllers/logout.php"><i class="bi bi-box-arrow-right" style="font-size: 19px;"></i></a>
                     </li>
                 </ul>
             </div>

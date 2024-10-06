@@ -84,6 +84,19 @@ $careers = $stmtCareers->fetchAll(PDO::FETCH_ASSOC);
     </form>
 </div>
 
+<script>
+        // Obtener la fecha actual
+        const today = new Date();
+        const year = today.getFullYear();
+        const month = ('0' + (today.getMonth() + 1)).slice(-2); // Asegura 2 dígitos
+        const day = ('0' + today.getDate()).slice(-2); // Asegura 2 dígitos
+
+        // Formatear como YYYY-MM-DD
+        const formattedDate = `${year}-${month}-${day}`;
+
+        // Asignar la fecha actual al input de tipo date
+        document.getElementById('report_date').value = formattedDate;
+    </script>
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
 </body>
 </html>

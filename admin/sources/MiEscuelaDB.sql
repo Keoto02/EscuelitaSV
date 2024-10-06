@@ -99,7 +99,7 @@ CREATE TABLE problem_reports (
 
 INSERT INTO problem_reports (student_id, teacher_id, career_course_id, report_date, description)
 VALUES (
-    6, 
+    1, 
     2,  
     1,  
     '2024-10-06', 
@@ -108,28 +108,9 @@ VALUES (
 
 INSERT INTO problem_reports (student_id, teacher_id, career_course_id, report_date, description)
 VALUES (
-    6,
+    1,
     1,  
     1,  
     '2024-10-06',  
     'El estudiante fue encontrado en estado de ebriedad sosteniendo la foto de una estudiante (La colocha).'  
 );
-
-select * from problem_reports;
-SELECT 
-    PR.id, 
-    S.first_name_students, 
-    U.first_name_user, 
-    C.name_career_course, 
-    PR.report_date, 
-    PR.description
-FROM 
-    problem_reports PR
-INNER JOIN 
-    students S ON PR.student_id = S.id_students
-INNER JOIN 
-    users U ON PR.teacher_id = U.id_user
-INNER JOIN 
-    careers_courses C ON PR.career_course_id = C.id_career_course
-WHERE 
-    U.id_user = 2; -- Cambia esto por el ID del profesor en sesión
