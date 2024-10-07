@@ -79,7 +79,7 @@ $studymodes = $stmt->fetchAll(PDO::FETCH_ASSOC);
             </select>
         </div>
         <button type="submit" class="btn btn-primary mt-4">Guardar Nuevo Estudiante</button>
-        <a href="./student.php" class="btn btn-danger mt-4">Regresar</a>
+        <a href="../views/students.php" class="btn btn-danger mt-4">Regresar</a>
     </form>
 </div>
 

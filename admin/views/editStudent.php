@@ -99,7 +99,7 @@ if (isset($_GET['id'])) {
         </div>
 
         <button type="submit" class="btn btn-primary mt-4">Guardar Cambios</button>
-        <a href="./students.php" class="btn btn-danger mt-4">Cancelar</a>
+        <a href="../views/students.php" class="btn btn-danger mt-4">Cancelar</a>
     </form>
 </div>
 

@@ -99,18 +99,7 @@ CREATE TABLE problem_reports (
 
 INSERT INTO problem_reports (student_id, teacher_id, career_course_id, report_date, description)
 VALUES (
-    1, 
-    2,  
-    1,  
-    '2024-10-06', 
-    'El estudiante fue encontrado en estado de ebriedad sosteniendo la foto de una estudiante (La colocha).'  
-);
+    1, 2, 1, '2024-10-06', 'La estudiante se encontró haciendo actividades indebidas (Fumando).');
 
 INSERT INTO problem_reports (student_id, teacher_id, career_course_id, report_date, description)
-VALUES (
-    1,
-    1,  
-    1,  
-    '2024-10-06',  
-    'El estudiante fue encontrado en estado de ebriedad sosteniendo la foto de una estudiante (La colocha).'  
-);
+VALUES (1, 3, 1, '2024-10-06', 'El estudiante fue encontrado en estado de ebriedad.');

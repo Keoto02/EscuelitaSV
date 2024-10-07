@@ -40,7 +40,7 @@
         $pwd = isset($_POST['pwd']) ? $_POST['pwd'] : "";
 
         $query = "
-            SELECT id_user, u.username_user, u.password_user, ut.user_type 
+            SELECT id_user, u.first_name_user, u.username_user, u.password_user, ut.user_type 
             FROM users u 
             INNER JOIN user_types ut ON u.user_type_id = ut.id_user_type 
             WHERE u.username_user = :user";
@@ -54,6 +54,7 @@
             session_start();
             $_SESSION["user"] = $userFound['user_type'];
             $_SESSION["userID"] = $userFound['id_user'];
+            $_SESSION["username"] = $userFound['first_name_user'];
 
             if ($userFound['user_type'] == 'administrator') {
                 header('Location: ./admin/views/Admin.php');

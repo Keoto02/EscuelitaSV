@@ -81,39 +81,40 @@ if ($_SESSION['user'] == "") {
             </thead>
             <tbody>
                 <?php
-                    include '../Controllers/problemsReportsController.php';
-                    if ($reports != null) {
-                        foreach ($reports as $report): 
+                include '../Controllers/problemsReportsController.php';
+                if ($reports != null) {
+                    foreach ($reports as $report):
                 ?>
+                        <tr>
+                            <td><?php echo $report['id']; ?></td>
+                            <td><?php echo $report['student_name']; ?></td>
+                            <td><?php echo $report['teacher_name']; ?></td>
+                            <td><?php echo $report['career_course']; ?></td>
+                            <td><?php echo $report['report_date']; ?></td>
+                            <td class="col-4"><?php echo $report['description']; ?></td>
+                            <td>
+                                <a href="../Controllers/getByIdProblemReportController.php?action=edit&id=<?php echo $report['id']; ?>" class="btn btn-primary btn-sm">
+                                    <i class="bi bi-pencil"></i>
+                                </a>
+                                <a href="../Controllers/getByIdProblemReportController.php?action=delete&id=<?php echo $report['id']; ?>" class="btn btn-danger btn-sm">
+                                    <i class="bi bi-trash"></i>
+                                </a>
+                            </td>
+                        </tr>
+
+                    <?php
+                    endforeach;
+                } else {
+                    ?>
                     <tr>
-                        <td><?php echo $report['id']; ?></td>
-                        <td><?php echo $report['student_name']; ?></td>
-                        <td><?php echo $report['teacher_name']; ?></td>
-                        <td><?php echo $report['career_course']; ?></td>
-                        <td><?php echo $report['report_date']; ?></td>
-                        <td><?php echo $report['description']; ?></td>
-                        <td>
-                            <a href="../Controllers/getByIdProblemReportController.php?action=edit&id=<?php echo $report['id']; ?>" class="btn btn-primary btn-sm">
-                                <i class="bi bi-pencil"></i>
-                            </a>
-                            <a href="../Controllers/getByIdProblemReportController.php?action=delete&id=<?php echo $report['id']; ?>" class="btn btn-danger btn-sm">
-                                <i class="bi bi-trash"></i>
-                            </a>
+                        <td colspan="7" style="text-align:center;">
+                            <?php echo "NO SE HAN ENCONTRADO REGISTROS"; ?>
                         </td>
                     </tr>
                 <?php
-                        endforeach; 
-                    } else{ 
+                }
                 ?>
-                        <tr>
-                            <td colspan="7" style="text-align:center;">
-                                <?php echo "NO SE HAN ENCONTRADO REGISTROS"; ?>
-                            </td>
-                        </tr>
-                <?php
-                    }
-                ?>
-                    
+
             </tbody>
         </table>
 

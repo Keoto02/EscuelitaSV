@@ -23,7 +23,7 @@ if ($_SESSION['user'] == "") {
     <form action="../Controllers/deleteStudentController.php" method="POST">
         <input type="hidden" name="idStudent" value="<?php echo $student['id_students']; ?>">
         <button type="submit" class="btn btn-danger">Sí, Eliminar</button>
-        <a href="../views/student.php" class="btn btn-primary">Cancelar</a>
+        <a href="../views/students.php" class="btn btn-primary">Cancelar</a>
     </form>
 </div>
 

@@ -8,10 +8,14 @@ try {
 
     
     $sql = "SELECT PR.id, PR.description, 
-                   S.first_name_students, S.last_name_students, 
+                   S.first_name_students, S.last_name_students,
+                   US.first_name_user,
+                   US.last_name_user,
+                   PR.report_date,
                    CC.name_career_course
             FROM problem_reports PR
             LEFT JOIN students S ON PR.student_id = S.id_students
+            LEFT JOIN users US ON PR.teacher_id = US.id_user
             LEFT JOIN careers_courses CC ON S.program_id = CC.id_career_course
             WHERE PR.id = :idReport";
 
