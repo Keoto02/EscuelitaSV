@@ -52,11 +52,11 @@ if ($_SESSION['user'] == "") {
             </div>
 
             <div class="form-group">
-                <label for="teacher">Profesor:</label>
+                <label for="teacher_id">Profesor:</label>
                 <?php
                 if ($_SESSION["username"] == "Admin") {
                 ?>
-                    <select class="form-control" id="teacher" name="teacher_id" required>
+                    <select class="form-control" id="teacher_id" name="teacher_id" required>
                         <option value="">Selecciona un profesor</option>
                         <?php foreach ($teachers as $teacher): ?>
                             <option value="<?php echo $teacher['id_user']; ?>"><?php echo $teacher['first_name_user']; ?></option>
@@ -65,7 +65,7 @@ if ($_SESSION['user'] == "") {
                 <?php
                 } else {
                 ?>
-                    <input type="text" class="form-control" id="teacher" name="teacher_id" value="<?= $_SESSION["username"] ?>" required disabled>
+                    <input type="text" class="form-control" id="teacher_id" name="teacher_id" value="<?= $_SESSION["username"] ?>" required disabled>
                 <?php
                 }
                 ?>

@@ -43,29 +43,30 @@ if ($_SESSION['user'] == "") {
                 <ul class="navbar-nav">
                     <li class="nav-item">
                         <a class="nav-link" href="./Admin.php">
-                            <i class="bi bi-person bi-lg" style="font-size: 19px;"></i> Usuarios
+                            <i class="bi bi-person-fill bi-lg" style="font-size: 19px;"></i> Usuarios
                         </a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link" href="./careers.php">
-                            <i class="bi bi-person bi-lg" style="font-size: 19px;"></i> Carreras y Cursos
+                            <i class="bi bi-book bi-lg" style="font-size: 19px;"></i> Carreras y Cursos
                         </a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link" href="./students.php">
-                            <i class="bi bi-person bi-lg" style="font-size: 19px;"></i> Estudiantes
+                            <i class="bi bi-person-badge bi-lg" style="font-size: 19px;"></i> Estudiantes
                         </a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link" href="./problemsReports.php">
-                            <i class="bi bi-person bi-lg" style="font-size: 19px;"></i> Reportes de Problemas
+                            <i class="bi bi-exclamation-triangle-fill bi-lg" style="font-size: 19px;"></i> Reportes de Problemas
                         </a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link" href="./graphicProblemReport.php">
-                            <i class="bi bi-person bi-lg" style="font-size: 19px;"></i> Reportes de Problemas
+                            <i class="bi bi-bar-chart bi-lg" style="font-size: 19px;"></i> Gráfico de Problemas
                         </a>
                     </li>
+
                 </ul>
                 <ul class="navbar-nav ms-auto">
                     <li class="nav-item">

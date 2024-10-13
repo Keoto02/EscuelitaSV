@@ -31,11 +31,11 @@ INSERT INTO users (first_name_user, last_name_user, email_user, username_user, p
 -- Program types table
 CREATE TABLE career_course_types (
     id_career_course_type INT AUTO_INCREMENT PRIMARY KEY,
-    career_course_type VARCHAR(20) UNIQUE NOT NULL
+    career_course_type VARCHAR(50) UNIQUE NOT NULL
 );
 
 -- Insert program types
-INSERT INTO career_course_types (career_course_type) VALUES ('career'), ('course');
+INSERT INTO career_course_types (career_course_type) VALUES ('Carrera'), ('Curso');
 
 -- Programs/Courses table
 CREATE TABLE careers_courses (
@@ -45,11 +45,36 @@ CREATE TABLE careers_courses (
     FOREIGN KEY (career_course_type_id) REFERENCES career_course_types(id_career_course_type)
 );
 
+SELECT 
+    cc.id_career_course, 
+    cc.name_career_course, 
+    cct.career_course_type
+FROM 
+    careers_courses cc
+INNER JOIN 
+    career_course_types cct ON cc.career_course_type_id = cct.id_career_course_type;
+
+
 INSERT INTO careers_courses (name_career_course, career_course_type_id)
 VALUES
 ('Ingeniería en Sistemas', 1),
-('Administración de Empresas', 2),
-('Derecho', 2);
+('Administración de Empresas', 1),
+('Ingeniería Civil', 1),
+('Medicina', 1),
+('Contaduría Pública', 1),
+('Ingeniería Industrial', 1),
+('Psicología', 1),
+('Matemáticas Avanzadas', 2),
+('Programación en Python', 2),
+('Diseño Gráfico', 2),
+('Redes de Computadoras', 2),
+('Contabilidad Básica', 2),
+('Introducción al Derecho', 2),
+('Economía Aplicada', 2),
+('Química Orgánica', 2),
+('Física Aplicada', 2),
+('Técnicas de Venta', 2);
+
 
 -- Study modes table
 CREATE TABLE study_modes (
