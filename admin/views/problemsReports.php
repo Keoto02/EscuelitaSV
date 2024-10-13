@@ -26,12 +26,13 @@ if ($_SESSION['user'] == "") {
 
 <style>
     .nav-item.dropdown:hover .dropdown-menu {
-        display: block; /* Muestra el menú desplegable al pasar el mouse */
+        display: block;
+        /* Muestra el menú desplegable al pasar el mouse */
     }
 </style>
 
 <body>
-<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
         <div class="container-fluid">
             <a class="navbar-brand" href="#">
                 <i class="bi bi-building" style="font-size: 19px;"></i> Universidad de Oriente
@@ -42,21 +43,20 @@ if ($_SESSION['user'] == "") {
             <div class="collapse navbar-collapse" id="navbarNav">
                 <ul class="navbar-nav">
 
-                <?php
-                if ($_SESSION["user"] == "administrator") {
-                ?>
-                    <li class="nav-item">
-                        <a class="nav-link" href="./Admin.php">
-                            <i class="bi bi-person-fill bi-lg" style="font-size: 19px;"></i> Usuarios
-                        </a>
-                    </li>
-                <?php } ?>
-                    
-                    <li class="nav-item">
-                        <a class="nav-link" href="./careers.php">
-                            <i class="bi bi-book bi-lg" style="font-size: 19px;"></i> Carreras y Cursos
-                        </a>
-                    </li>
+                    <?php
+                    if ($_SESSION["user"] == "administrator") {
+                    ?>
+                        <li class="nav-item">
+                            <a class="nav-link" href="./Admin.php">
+                                <i class="bi bi-person-fill bi-lg" style="font-size: 19px;"></i> Usuarios
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="./careers.php">
+                                <i class="bi bi-book bi-lg" style="font-size: 19px;"></i> Carreras y Cursos
+                            </a>
+                        </li>
+                    <?php } ?>
                     <li class="nav-item">
                         <a class="nav-link" href="./students.php">
                             <i class="bi bi-person-badge bi-lg" style="font-size: 19px;"></i> Estudiantes
@@ -90,7 +90,7 @@ if ($_SESSION['user'] == "") {
         <a href="./addProblemReport.php" class="btn btn-success mb-3">
             <i class="bi bi-plus"></i> Crear Nuevo Reporte
         </a>
-        
+
         <table class="table" id="problemsReportsTable">
             <thead class="thead-dark">
                 <tr>
@@ -155,11 +155,10 @@ if ($_SESSION['user'] == "") {
     <script src="https://cdn.datatables.net/buttons/2.4.2/js/buttons.print.min.js"></script>
     <script src="https://cdn.datatables.net/responsive/2.5.0/js/dataTables.responsive.min.js"></script>
     <script>
-        $(document).ready(function () {
+        $(document).ready(function() {
             $("#problemsReportsTable").DataTable({
                 dom: 'Bfrtip',
-                buttons: [
-                    {
+                buttons: [{
                         extend: 'csv',
                         exportOptions: {
                             columns: ':not(:last-child)'
@@ -178,13 +177,11 @@ if ($_SESSION['user'] == "") {
                         }
                     }
                 ],
-                columnDefs: [
-                    {
-                        targets: 6,
-                        orderable: false,
-                        searchable: false
-                    }
-                ],
+                columnDefs: [{
+                    targets: 6,
+                    orderable: false,
+                    searchable: false
+                }],
                 language: {
                     url: '//cdn.datatables.net/plug-ins/1.13.7/i18n/es-ES.json'
                 }

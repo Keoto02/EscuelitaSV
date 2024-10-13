@@ -8,6 +8,7 @@ if ($_SESSION['user'] == "") {
 
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -22,34 +23,44 @@ if ($_SESSION['user'] == "") {
         justify-content: center;
         align-items: center;
     }
+
     .date-input {
         margin: 0 10px;
     }
+
     label {
         margin-right: 5px;
     }
+
     #drawGraphic {
         margin-top: 10px;
     }
+
     .full-height {
-        height: 100vh; /* Altura de la pantalla completa */
-        display: flex; /* Usar Flexbox */
-        align-items: center; /* Centrar verticalmente */
-        justify-content: center; /* Centrar horizontalmente */
+        height: 100vh;
+        /* Altura de la pantalla completa */
+        display: flex;
+        /* Usar Flexbox */
+        align-items: center;
+        /* Centrar verticalmente */
+        justify-content: center;
+        /* Centrar horizontalmente */
     }
-    .danger{
+
+    .danger {
         background-color: #FF4D4D;
     }
 </style>
 
 <style>
     .nav-item.dropdown:hover .dropdown-menu {
-        display: block; /* Muestra el menú desplegable al pasar el mouse */
+        display: block;
+        /* Muestra el menú desplegable al pasar el mouse */
     }
 </style>
 
 <body>
-<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
         <div class="container-fluid">
             <a class="navbar-brand" href="#">
                 <i class="bi bi-building" style="font-size: 19px;"></i> Universidad de Oriente
@@ -60,21 +71,20 @@ if ($_SESSION['user'] == "") {
             <div class="collapse navbar-collapse" id="navbarNav">
                 <ul class="navbar-nav">
 
-                <?php
-                if ($_SESSION["user"] == "administrator") {
-                ?>
-                    <li class="nav-item">
-                        <a class="nav-link" href="./Admin.php">
-                            <i class="bi bi-person-fill bi-lg" style="font-size: 19px;"></i> Usuarios
-                        </a>
-                    </li>
-                <?php } ?>
-                    
-                    <li class="nav-item">
-                        <a class="nav-link" href="./careers.php">
-                            <i class="bi bi-book bi-lg" style="font-size: 19px;"></i> Carreras y Cursos
-                        </a>
-                    </li>
+                    <?php
+                    if ($_SESSION["user"] == "administrator") {
+                    ?>
+                        <li class="nav-item">
+                            <a class="nav-link" href="./Admin.php">
+                                <i class="bi bi-person-fill bi-lg" style="font-size: 19px;"></i> Usuarios
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="./careers.php">
+                                <i class="bi bi-book bi-lg" style="font-size: 19px;"></i> Carreras y Cursos
+                            </a>
+                        </li>
+                    <?php } ?>
                     <li class="nav-item">
                         <a class="nav-link" href="./students.php">
                             <i class="bi bi-person-badge bi-lg" style="font-size: 19px;"></i> Estudiantes
@@ -142,7 +152,7 @@ if ($_SESSION['user'] == "") {
                     $.ajax({
                         url: '../controllers/graphicProblemReportController.php',
                         type: 'POST',
-                        data: { 
+                        data: {
                             start_date: startDate,
                             end_date: endDate
                         },
@@ -161,4 +171,5 @@ if ($_SESSION['user'] == "") {
         });
     </script>
 </body>
+
 </html>

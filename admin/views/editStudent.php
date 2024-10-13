@@ -1,8 +1,7 @@
 <?php
 session_start();
-if ($_SESSION['user'] == "") {
-    header("Location: ../../index.php");
-    exit();
+if ($_SESSION['user'] == "" || $_SESSION['user'] != "administrator") {
+    header("Location: ../views/students.php");
 }
 
 include '../conf/conf.php';

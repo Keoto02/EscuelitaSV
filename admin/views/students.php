@@ -1,7 +1,7 @@
 <?php
 session_start();
 if ($_SESSION['user'] == "") {
-    header("Location: ../index.php");
+    header("Location: ../views/students.php");
 }
 ?>
 
@@ -20,12 +20,13 @@ if ($_SESSION['user'] == "") {
     <link href="https://cdn.datatables.net/responsive/2.5.0/css/responsive.dataTables.min.css" rel="stylesheet" />
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css">
     <link rel="stylesheet" href="../../css/style.css">
-    
+
 </head>
 
 <style>
     .nav-item.dropdown:hover .dropdown-menu {
-        display: block; /* Muestra el menú desplegable al pasar el mouse */
+        display: block;
+        /* Muestra el menú desplegable al pasar el mouse */
     }
 </style>
 
@@ -41,21 +42,20 @@ if ($_SESSION['user'] == "") {
             <div class="collapse navbar-collapse" id="navbarNav">
                 <ul class="navbar-nav">
 
-                <?php
-                if ($_SESSION["user"] == "administrator") {
-                ?>
-                    <li class="nav-item">
-                        <a class="nav-link" href="./Admin.php">
-                            <i class="bi bi-person-fill bi-lg" style="font-size: 19px;"></i> Usuarios
-                        </a>
-                    </li>
-                <?php } ?>
-                    
-                    <li class="nav-item">
-                        <a class="nav-link" href="./careers.php">
-                            <i class="bi bi-book bi-lg" style="font-size: 19px;"></i> Carreras y Cursos
-                        </a>
-                    </li>
+                    <?php
+                    if ($_SESSION["user"] == "administrator") {
+                    ?>
+                        <li class="nav-item">
+                            <a class="nav-link" href="./Admin.php">
+                                <i class="bi bi-person-fill bi-lg" style="font-size: 19px;"></i> Usuarios
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="./careers.php">
+                                <i class="bi bi-book bi-lg" style="font-size: 19px;"></i> Carreras y Cursos
+                            </a>
+                        </li>
+                    <?php } ?>
                     <li class="nav-item">
                         <a class="nav-link" href="./students.php">
                             <i class="bi bi-person-badge bi-lg" style="font-size: 19px;"></i> Estudiantes
@@ -86,10 +86,13 @@ if ($_SESSION['user'] == "") {
 
     <div class="container mt-5">
         <h1 class="mb-4">Lista de Estudiantes</h1>
-        <a href="./addStudent.php" class="btn btn-success mb-3">
-            <i class="bi bi-plus"></i> Crear Nuevo Estudiante
-        </a>
-
+        <?php
+        if ($_SESSION["user"] == "administrator") {
+        ?>
+            <a href="./addStudent.php" class="btn btn-success mb-3">
+                <i class="bi bi-plus"></i> Crear Nuevo Estudiante
+            </a>
+        <?php } ?>
         <table class="table" id="studentTable">
             <thead class="thead-dark">
                 <tr>
@@ -139,7 +142,7 @@ if ($_SESSION['user'] == "") {
             </tbody>
         </table>
     </div>
-  
+
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js" integrity="sha512-v2CJ7UaYy4JwqLDIrZUI/4hqeoQieOmAZNXBeQyjo21dadnwR+8ZaIJVT8EE2iyI61OV8e6M8PP2/4hpQINQ/g==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jszip/3.10.1/jszip.min.js"></script>
@@ -152,11 +155,10 @@ if ($_SESSION['user'] == "") {
     <script src="https://cdn.datatables.net/buttons/2.4.2/js/buttons.print.min.js"></script>
     <script src="https://cdn.datatables.net/responsive/2.5.0/js/dataTables.responsive.min.js"></script>
     <script>
-        $(document).ready(function () {
+        $(document).ready(function() {
             $("#studentTable").DataTable({
                 dom: 'Bfrtip',
-                buttons: [
-                    {
+                buttons: [{
                         extend: 'csv',
                         exportOptions: {
                             columns: ':not(:last-child)'
@@ -175,13 +177,11 @@ if ($_SESSION['user'] == "") {
                         }
                     }
                 ],
-                columnDefs: [
-                    {
-                        targets: <?php echo ($_SESSION["user"] == "administrator") ? 8 : 7;?>,
-                        orderable: false,
-                        searchable: false
-                    }
-                ],
+                columnDefs: [{
+                    targets: <?php echo ($_SESSION["user"] == "administrator") ? 8 : 7; ?>,
+                    orderable: false,
+                    searchable: false
+                }],
                 language: {
                     url: '//cdn.datatables.net/plug-ins/1.13.7/i18n/es-ES.json'
                 }
@@ -192,4 +192,3 @@ if ($_SESSION['user'] == "") {
 </body>
 
 </html>
-

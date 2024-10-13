@@ -1,7 +1,7 @@
 <?php
 session_start();
-if ($_SESSION['user'] == "") {
-    header("Location: ../../index.php");
+if ($_SESSION['user'] == "" || $_SESSION['user'] != "administrator") {
+    header("Location: ../views/students.php");
 }
 ?>
 
@@ -42,21 +42,21 @@ if ($_SESSION['user'] == "") {
             <div class="collapse navbar-collapse" id="navbarNav">
                 <ul class="navbar-nav">
 
-                <?php
-                if ($_SESSION["user"] == "administrator") {
-                ?>
-                    <li class="nav-item">
-                        <a class="nav-link" href="./Admin.php">
-                            <i class="bi bi-person-fill bi-lg" style="font-size: 19px;"></i> Usuarios
-                        </a>
-                    </li>
-                <?php } ?>
-                    
-                    <li class="nav-item">
-                        <a class="nav-link" href="./careers.php">
-                            <i class="bi bi-book bi-lg" style="font-size: 19px;"></i> Carreras y Cursos
-                        </a>
-                    </li>
+                    <?php
+                    if ($_SESSION["user"] == "administrator") {
+                    ?>
+                        <li class="nav-item">
+                            <a class="nav-link" href="./Admin.php">
+                                <i class="bi bi-person-fill bi-lg" style="font-size: 19px;"></i> Usuarios
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="./careers.php">
+                                <i class="bi bi-book bi-lg" style="font-size: 19px;"></i> Carreras y Cursos
+                            </a>
+                        </li>
+                    <?php } ?>
+
                     <li class="nav-item">
                         <a class="nav-link" href="./students.php">
                             <i class="bi bi-person-badge bi-lg" style="font-size: 19px;"></i> Estudiantes
@@ -180,7 +180,7 @@ if ($_SESSION['user'] == "") {
                     }
                 ],
                 columnDefs: [{
-                    targets: <?php echo ($_SESSION["user"] == "administrator") ? 6 : 5;?>,
+                    targets: <?php echo ($_SESSION["user"] == "administrator") ? 6 : 5; ?>,
                     orderable: false,
                     searchable: false
                 }],
