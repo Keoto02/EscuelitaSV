@@ -13,7 +13,6 @@ if ($_SESSION['user'] == "") {
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Lista de Estudiantes</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
-    <link rel="stylesheet" href="../../css/style.css">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css" rel="stylesheet">
     <link href="https://cdn.datatables.net/1.13.8/css/jquery.dataTables.min.css" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
@@ -24,9 +23,15 @@ if ($_SESSION['user'] == "") {
     
 </head>
 
+<style>
+    .nav-item.dropdown:hover .dropdown-menu {
+        display: block; /* Muestra el menú desplegable al pasar el mouse */
+    }
+</style>
+
 <body>
     <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
-        <div class="container">
+        <div class="container-fluid">
             <a class="navbar-brand" href="#">
                 <i class="bi bi-building" style="font-size: 19px;"></i> Universidad de Oriente
             </a>
@@ -36,25 +41,36 @@ if ($_SESSION['user'] == "") {
             <div class="collapse navbar-collapse" id="navbarNav">
                 <ul class="navbar-nav">
                     <li class="nav-item">
-                        <a class="nav-link" href="./Admin.php"> <i class="bi bi-person bi-lg" style="font-size: 19px;"></i> Usuarios</a>
+                        <a class="nav-link" href="./Admin.php">
+                            <i class="bi bi-person bi-lg" style="font-size: 19px;"></i> Usuarios
+                        </a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="./index_user.php"> <i class="bi bi-person bi-lg" style="font-size: 19px;"></i> Tipo de Carrera o Curso</a>
+                        <a class="nav-link" href="./careers.php">
+                            <i class="bi bi-person bi-lg" style="font-size: 19px;"></i> Carreras y Cursos
+                        </a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="./index_user.php"> <i class="bi bi-person bi-lg" style="font-size: 19px;"></i> Carreras y Cursos</a>
+                        <a class="nav-link" href="./students.php">
+                            <i class="bi bi-person bi-lg" style="font-size: 19px;"></i> Estudiantes
+                        </a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="./index_user.php"> <i class="bi bi-person bi-lg" style="font-size: 19px;"></i> Modalidades de Estudio</a>
+                        <a class="nav-link" href="./problemsReports.php">
+                            <i class="bi bi-person bi-lg" style="font-size: 19px;"></i> Reportes de Problemas
+                        </a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="./students.php"> <i class="bi bi-person bi-lg" style="font-size: 19px;"></i> Estudiantes</a>
+                        <a class="nav-link" href="./graphicProblemReport.php">
+                            <i class="bi bi-person bi-lg" style="font-size: 19px;"></i> Reportes de Problemas
+                        </a>
                     </li>
+                </ul>
+                <ul class="navbar-nav ms-auto">
                     <li class="nav-item">
-                        <a class="nav-link" href="./problemsReports.php"> <i class="bi bi-person bi-lg" style="font-size: 19px;"></i> Reportes de Problemas</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="../Controllers/logout.php"><i class="bi bi-box-arrow-right" style="font-size: 19px;"></i></a>
+                        <a class="nav-link" href="../Controllers/logout.php">
+                            <i class="bi bi-box-arrow-right" style="font-size: 19px;"></i>
+                        </a>
                     </li>
                 </ul>
             </div>

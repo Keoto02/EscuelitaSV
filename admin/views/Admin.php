@@ -23,9 +23,15 @@ if ($_SESSION['user'] == "") {
     <link rel="stylesheet" href="../../css/style.css">
 </head>
 
+<style>
+    .nav-item.dropdown:hover .dropdown-menu {
+        display: block; /* Muestra el menú desplegable al pasar el mouse */
+    }
+</style>
+
 <body>
     <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
-        <div class="container">
+        <div class="container-fluid">
             <a class="navbar-brand" href="#">
                 <i class="bi bi-building" style="font-size: 19px;"></i> Universidad de Oriente
             </a>
@@ -35,30 +41,42 @@ if ($_SESSION['user'] == "") {
             <div class="collapse navbar-collapse" id="navbarNav">
                 <ul class="navbar-nav">
                     <li class="nav-item">
-                        <a class="nav-link" href="./Admin.php"> <i class="bi bi-person bi-lg" style="font-size: 19px;"></i> Usuarios</a>
+                        <a class="nav-link" href="./Admin.php">
+                            <i class="bi bi-person bi-lg" style="font-size: 19px;"></i> Usuarios
+                        </a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="./index_user.php"> <i class="bi bi-person bi-lg" style="font-size: 19px;"></i> Tipo de Carrera o Curso</a>
+                        <a class="nav-link" href="./careers.php">
+                            <i class="bi bi-person bi-lg" style="font-size: 19px;"></i> Carreras y Cursos
+                        </a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="./index_user.php"> <i class="bi bi-person bi-lg" style="font-size: 19px;"></i> Carreras y Cursos</a>
+                        <a class="nav-link" href="./students.php">
+                            <i class="bi bi-person bi-lg" style="font-size: 19px;"></i> Estudiantes
+                        </a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="./index_user.php"> <i class="bi bi-person bi-lg" style="font-size: 19px;"></i> Modalidades de Estudio</a>
+                        <a class="nav-link" href="./problemsReports.php">
+                            <i class="bi bi-person bi-lg" style="font-size: 19px;"></i> Reportes de Problemas
+                        </a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="./students.php"> <i class="bi bi-person bi-lg" style="font-size: 19px;"></i> Estudiantes</a>
+                        <a class="nav-link" href="./graphicProblemReport.php">
+                            <i class="bi bi-person bi-lg" style="font-size: 19px;"></i> Reportes de Problemas
+                        </a>
                     </li>
+                </ul>
+                <ul class="navbar-nav ms-auto">
                     <li class="nav-item">
-                        <a class="nav-link" href="./problemsReports.php"> <i class="bi bi-person bi-lg" style="font-size: 19px;"></i> Reportes de Problemas</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="../Controllers/logout.php"><i class="bi bi-box-arrow-right" style="font-size: 19px;"></i></a>
+                        <a class="nav-link" href="../Controllers/logout.php">
+                            <i class="bi bi-box-arrow-right" style="font-size: 19px;"></i>
+                        </a>
                     </li>
                 </ul>
             </div>
         </div>
     </nav>
+
     <div class="container mt-5">
         <h1 class="mb-4">Lista de Usuarios</h1>
         <?php
