@@ -59,7 +59,7 @@
             if ($userFound['user_type'] == 'administrator') {
                 header('Location: ./admin/views/Admin.php');
             } elseif ($userFound['user_type'] == 'teacher') {
-                header('Location: ./admin/views/Admin.php');
+                header('Location: ./admin/views/students.php');
             } else {
                 $error = "Tipo de usuario no reconocido";
                 echo "<script>alert('$error')</script>";

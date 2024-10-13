@@ -1,3 +1,11 @@
+<?php
+session_start();
+if ($_SESSION['user'] == "") {
+    header("Location: ../index.php");
+}
+?>
+
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -41,7 +49,7 @@
 </style>
 
 <body>
-    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
         <div class="container-fluid">
             <a class="navbar-brand" href="#">
                 <i class="bi bi-building" style="font-size: 19px;"></i> Universidad de Oriente
@@ -51,11 +59,17 @@
             </button>
             <div class="collapse navbar-collapse" id="navbarNav">
                 <ul class="navbar-nav">
+
+                <?php
+                if ($_SESSION["user"] == "administrator") {
+                ?>
                     <li class="nav-item">
                         <a class="nav-link" href="./Admin.php">
                             <i class="bi bi-person-fill bi-lg" style="font-size: 19px;"></i> Usuarios
                         </a>
                     </li>
+                <?php } ?>
+                    
                     <li class="nav-item">
                         <a class="nav-link" href="./careers.php">
                             <i class="bi bi-book bi-lg" style="font-size: 19px;"></i> Carreras y Cursos

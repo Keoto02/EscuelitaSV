@@ -34,11 +34,17 @@ if ($_SESSION['user'] == "") {
             </button>
             <div class="collapse navbar-collapse" id="navbarNav">
                 <ul class="navbar-nav">
+
+                <?php
+                if ($_SESSION["user"] == "administrator") {
+                ?>
                     <li class="nav-item">
                         <a class="nav-link" href="./Admin.php">
                             <i class="bi bi-person-fill bi-lg" style="font-size: 19px;"></i> Usuarios
                         </a>
                     </li>
+                <?php } ?>
+                    
                     <li class="nav-item">
                         <a class="nav-link" href="./careers.php">
                             <i class="bi bi-book bi-lg" style="font-size: 19px;"></i> Carreras y Cursos
@@ -83,7 +89,13 @@ if ($_SESSION['user'] == "") {
                     <th>ID</th>
                     <th>Nombre</th>
                     <th>Tipo</th>
-                    <th>Acciones</th>
+                    
+                    <?php
+                    if ($_SESSION["user"] == "administrator") {
+                    ?>
+                        <th>Acciones</th>
+                    <?php } ?>
+                    
                 </tr>
             </thead>
             <tbody>
@@ -95,14 +107,18 @@ if ($_SESSION['user'] == "") {
                         <td><?php echo $career['id_career_course']; ?></td>
                         <td><?php echo $career['name_career_course']; ?></td>
                         <td><?php echo $career['career_course_type']; ?></td>
-                        <td>
-                            <a href="../Controllers/getByIdCareerController.php?action=edit&id=<?php echo $career['id_career_course']; ?>" class="btn btn-primary btn-sm">
-                                <i class="bi bi-pencil"></i>
-                            </a>
-                            <a href="../Controllers/getByIdCareerController.php?action=delete&id=<?php echo $career['id_career_course']; ?>" class="btn btn-danger btn-sm">
-                                <i class="bi bi-trash"></i>
-                            </a>
-                        </td>
+                        <?php
+                        if ($_SESSION["user"] == "administrator") {
+                        ?>
+                            <td>
+                                <a href="../Controllers/getByIdCareerController.php?action=edit&id=<?php echo $career['id_career_course']; ?>" class="btn btn-primary btn-sm">
+                                    <i class="bi bi-pencil"></i>
+                                </a>
+                                <a href="../Controllers/getByIdCareerController.php?action=delete&id=<?php echo $career['id_career_course']; ?>" class="btn btn-danger btn-sm">
+                                    <i class="bi bi-trash"></i>
+                                </a>
+                            </td>
+                        <?php } ?>
                     </tr>
                 <?php endforeach; ?>
             </tbody>
@@ -144,7 +160,7 @@ if ($_SESSION['user'] == "") {
                     }
                 ],
                 columnDefs: [{
-                    targets: 3,
+                    targets: <?php echo ($_SESSION["user"] == "administrator") ? 3 : 2;?>,
                     orderable: false,
                     searchable: false
                 }],

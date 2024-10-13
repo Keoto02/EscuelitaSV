@@ -65,7 +65,8 @@ if ($_SESSION['user'] == "") {
                 <?php
                 } else {
                 ?>
-                    <input type="text" class="form-control" id="teacher_id" name="teacher_id" value="<?= $_SESSION["username"] ?>" required disabled>
+                    <input type="text" class="" id="teacher_id" name="teacher_id" value="<?= $_SESSION["userID"] ?>" required hidden>
+                    <input type="text" class="form-control" value="<?= $_SESSION["username"] ?>" required readonly>
                 <?php
                 }
                 ?>
