@@ -85,14 +85,31 @@ if ($_SESSION['user'] == "") {
     </nav>
 
     <div class="container mt-5">
-        <h1 class="mb-4">Lista de Estudiantes</h1>
-        <?php
-        if ($_SESSION["user"] == "administrator") {
-        ?>
-            <a href="./addStudent.php" class="btn btn-success mb-3">
-                <i class="bi bi-plus"></i> Crear Nuevo Estudiante
-            </a>
-        <?php } ?>
+        <div class="row">
+            <h1 class="mb-4">Lista de Estudiantes</h1>
+            <div class="col">
+                <?php
+                if ($_SESSION["user"] == "administrator") {
+                ?>
+                    <a href="./addStudent.php" class="btn btn-success mb-3">
+                        <i class="bi bi-plus"></i> Crear Nuevo Estudiante
+                    </a>
+                <?php } ?>
+            </div>
+
+            <form action="../controllers/importDataController.php" id="importForm" class="col-8 d-flex" method="post" enctype="multipart/form-data">
+                <div class="col mb-3">
+                    <div class="input-group custom-file-button">
+                        <input type="file" class="form-control" id="inputGroupFile" name="archivo" accept=".csv, .xlsx">
+                    </div>
+                </div>
+
+                <div class="px-2">
+                    <button type="submit" class="btn btn-primary">Importar</button>
+                </div>
+            </form>
+        </div>
+
         <table class="table" id="studentTable">
             <thead class="thead-dark">
                 <tr>
