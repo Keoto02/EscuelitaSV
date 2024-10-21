@@ -124,12 +124,12 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             } else {
                 $connection->rollBack();
                 $erroresEscapados = implode("\\n", array_map('addslashes', $errores)); // Escapar errores para evitar romper el JavaScript
-                echo "<script>alert('Se encontraron errores durante la importación:\\n$erroresEscapados'); </script></script>";
+                echo "<script>alert('Se encontraron errores durante la importación:\\n$erroresEscapados'); window.location.href = '../views/students.php';</script>";
             }
         } catch (Exception $e) {
             $connection->rollBack();
             $mensajeError = addslashes($e->getMessage()); // Escapar el mensaje de error
-            echo "<script>alert('Error durante la importación: $mensajeError'); </script></script>";
+            echo "<script>alert('Error durante la importación: $mensajeError'); window.location.href = '../views/students.php';</script>";
         }
     } else {
         echo "<script>alert('Error al subir el archivo.'); window.location.href = '../views/students.php';</script>";
