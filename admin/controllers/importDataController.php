@@ -120,7 +120,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
             if (empty($errores)) {
                 $connection->commit();
-                echo "<script>alert('$mensaje'); </script>";
+                echo "<script>alert('$mensaje'); window.location.href = '../views/students.php';</script>";
             } else {
                 $connection->rollBack();
                 $erroresEscapados = implode("\\n", array_map('addslashes', $errores)); // Escapar errores para evitar romper el JavaScript
